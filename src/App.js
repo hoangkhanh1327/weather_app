@@ -12,6 +12,7 @@ import QueryContext from './contexts/QueryContext';
 const App = () => {
     const [query, setQuery] = useState('Bien Hoa');
     const [weatherData, setWeatherData] = useState();
+    const [localName, setLocalName] = useState();
     const [hourlyForecastData, setHourlyForecastData] = useState();
     const [dailyForecastData, setDailyForecastData] = useState();
     const [loading, setLoading] = useState(true);
@@ -20,9 +21,11 @@ const App = () => {
     const fetchData = async () => {
         setLoading(true);
         try {
-            const { lat, lon } = await weatherAPI.getCoordinateByLocation(
-                query
-            );
+            const {
+                lat,
+                lon,
+                local_names: { vi },
+            } = await weatherAPI.getCoordinateByLocation(query);
             const forecastData = await weatherAPI.getForecastData(lat, lon);
             const currentWeatherData = await weatherAPI.getCurrentWeatherData(
                 lat,
@@ -31,6 +34,7 @@ const App = () => {
             setWeatherData(currentWeatherData);
             setHourlyForecastData(forecastData.hourly);
             setDailyForecastData(forecastData.daily);
+            setLocalName(vi);
             setError('');
         } catch (error) {
             setError('Không tìm thấy dữ liệu tỉnh / thành phố này.');
@@ -47,6 +51,29 @@ const App = () => {
 
     useEffect(() => {
         fetchData();
+    }, []);
+
+    useEffect(() => {
+        console.log('test');
+        if (navigator.geolocation) {
+            navigator.permissions
+                .query({ name: 'geolocation' })
+                .then(function (result) {
+                    if (result.state === 'granted') {
+                        console.log(result.state);
+                        //If granted then you can directly call your function here
+                    } else if (result.state === 'prompt') {
+                        console.log(result.state);
+                    } else if (result.state === 'denied') {
+                        //If denied then you have to show instructions to enable location
+                    }
+                    result.onchange = function () {
+                        console.log(result.state);
+                    };
+                });
+        } else {
+            alert('Sorry Not available!');
+        }
     }, []);
 
     return (
@@ -67,7 +94,10 @@ const App = () => {
                     <div className="container mx-auto max-w-6xl">
                         {error === '' ? (
                             <>
-                                <LocationBox weatherData={weatherData} />
+                                <LocationBox
+                                    weatherData={weatherData}
+                                    localName={localName}
+                                />
                                 <WeatherBox weatherData={weatherData} />
                                 <HourlyForecast
                                     hourlyForecastData={hourlyForecastData}

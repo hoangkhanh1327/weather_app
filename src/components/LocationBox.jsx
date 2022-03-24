@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import QueryContext from '../contexts/QueryContext';
 import Loading from './Loading';
 
-const LocationBox = ({ weatherData }) => {
+const LocationBox = ({ weatherData, localName }) => {
     const { loading } = useContext(QueryContext);
     const dayConverter = (d) => {
         let months = [
@@ -43,7 +43,7 @@ const LocationBox = ({ weatherData }) => {
             {!loading ? (
                 <>
                     <header className="px-2.5 py-4 bg-gradient-to-r from-slate-300 to-slate-400 flex items-center justify-between">
-                        <h3 className="text-2xl font-bold">{`${weatherData?.name}, ${weatherData?.sys.country}`}</h3>
+                        <h3 className="text-2xl font-bold">{`${localName}, ${weatherData?.sys.country}`}</h3>
                         <p className="text-2xl">{dayConverter(new Date())}</p>
                     </header>
                     <div

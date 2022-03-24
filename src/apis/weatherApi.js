@@ -4,7 +4,7 @@ const apiKey = '9fab1e4a25d72ab7679121b0c2d066b7';
 const getCoordinateByLocation = async (locationName) => {
     try {
         const { data } = await instance.get(
-            `/geo/1.0/direct?q=${locationName}}&appid=${apiKey}&limit=1`
+            `/geo/1.0/direct?q=${locationName}&appid=${apiKey}&limit=1`
         );
 
         return data[0];

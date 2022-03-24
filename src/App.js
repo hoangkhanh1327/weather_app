@@ -78,7 +78,7 @@ const App = () => {
     // }, []);
 
     return (
-        <div className="bg-gradient-to-b from-blue-200 to-blue-300">
+        <>
             <QueryContext.Provider
                 value={{ query, setQuery, handleSearch, loading }}
             >
@@ -91,18 +91,20 @@ const App = () => {
                         </div>
                     </div>
                 </header>
-                <main className="relative p-6">
+                <main className="relative p-6 bg-cover bg-bottom bg-no-repeat bg-main">
                     <div className="container mx-auto max-w-6xl">
                         {error === '' ? (
                             <>
-                                <LocationBox
-                                    weatherData={weatherData}
-                                    localName={localName}
-                                />
-                                <WeatherBox weatherData={weatherData} />
-                                <HourlyForecast
-                                    hourlyForecastData={hourlyForecastData}
-                                />
+                                <div>
+                                    <LocationBox
+                                        weatherData={weatherData}
+                                        localName={localName}
+                                    />
+                                    <WeatherBox weatherData={weatherData} />
+                                    <HourlyForecast
+                                        hourlyForecastData={hourlyForecastData}
+                                    />
+                                </div>
                                 <Forecast
                                     dailyForecastData={dailyForecastData}
                                 />
@@ -117,7 +119,7 @@ const App = () => {
                     </div>
                 </main>
             </QueryContext.Provider>
-        </div>
+        </>
     );
 };
 

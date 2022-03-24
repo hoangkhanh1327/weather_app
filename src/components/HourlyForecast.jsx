@@ -7,9 +7,9 @@ import Loading from './Loading';
 const HourlyForecast = ({ hourlyForecastData }) => {
     const { loading } = useContext(QueryContext);
     return (
-        <section className="rounded shadow-lg overflow-hidden mb-4">
+        <section className="rounded shadow-lg overflow-hidden mb-4 bg-rgba-0.2">
             <header className="px-2.5 py-4 bg-white">
-                <h3 className="text-2xl font-bold">{`Dự báo hằng giờ`}</h3>
+                <h3 className="text-2xl lg:text-3xl font-bold">{`Dự báo hằng giờ`}</h3>
             </header>
             {!loading ? (
                 <>

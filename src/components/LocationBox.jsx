@@ -42,13 +42,15 @@ const LocationBox = ({ weatherData, localName }) => {
         <section className="rounded shadow-lg overflow-hidden mb-4">
             {!loading ? (
                 <>
-                    <header className="px-2.5 py-4 bg-gradient-to-r from-slate-300 to-slate-400 flex items-center justify-between">
-                        <h3 className="text-2xl font-bold">{`${localName}, ${weatherData?.sys.country}`}</h3>
-                        <p className="text-2xl">{dayConverter(new Date())}</p>
+                    <header className="px-2.5 py-4 bg-gradient-to-r from-slate-300 to-slate-200 flex items-center justify-between">
+                        <h3 className="text-2xl lg:text-3xl font-bold">{`${localName}, ${weatherData?.sys.country}`}</h3>
+                        <p className="text-2xl lg:text-3xl">
+                            {dayConverter(new Date())}
+                        </p>
                     </header>
                     <div
                         className={`flex justify-between items-center p-4 bg-cover bg-center ${
-                            weatherData?.main.temp <= 28 ? 'bg-warm' : 'bg-cold'
+                            weatherData?.main.temp >= 28 ? 'bg-warm' : 'bg-cold'
                         }`}
                     >
                         <div className="mx-6">

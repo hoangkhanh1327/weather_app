@@ -1,0 +1,1 @@
+http://api.openweathermap.org/geo/1.0/direct?q=Bien?Hoa&appid=9fab1e4a25d72ab7679121b0c2d066b7

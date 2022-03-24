@@ -61,7 +61,7 @@ const LocationBox = ({ weatherData, localName }) => {
                         </div>
                         <div className="mx-6">
                             <img
-                                src={`http://openweathermap.org/img/wn/${weatherData?.weather[0].icon}@2x.png`}
+                                src={`https://openweathermap.org/img/wn/${weatherData?.weather[0].icon}@2x.png`}
                                 alt="weather icon"
                             />
                         </div>

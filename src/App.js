@@ -54,28 +54,28 @@ const App = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    useEffect(() => {
-        console.log('test');
-        if (navigator.geolocation) {
-            navigator.permissions
-                .query({ name: 'geolocation' })
-                .then(function (result) {
-                    if (result.state === 'granted') {
-                        console.log(result.state);
-                        //If granted then you can directly call your function here
-                    } else if (result.state === 'prompt') {
-                        console.log(result.state);
-                    } else if (result.state === 'denied') {
-                        //If denied then you have to show instructions to enable location
-                    }
-                    result.onchange = function () {
-                        console.log(result.state);
-                    };
-                });
-        } else {
-            alert('Sorry Not available!');
-        }
-    }, []);
+    // useEffect(() => {
+    //     console.log('test');
+    //     if (navigator.geolocation) {
+    //         navigator.permissions
+    //             .query({ name: 'geolocation' })
+    //             .then(function (result) {
+    //                 if (result.state === 'granted') {
+    //                     console.log(result.state);
+    //                     //If granted then you can directly call your function here
+    //                 } else if (result.state === 'prompt') {
+    //                     console.log(result.state);
+    //                 } else if (result.state === 'denied') {
+    //                     //If denied then you have to show instructions to enable location
+    //                 }
+    //                 result.onchange = function () {
+    //                     console.log(result.state);
+    //                 };
+    //             });
+    //     } else {
+    //         alert('Sorry Not available!');
+    //     }
+    // }, []);
 
     return (
         <div className="bg-gradient-to-b from-blue-200 to-blue-300">

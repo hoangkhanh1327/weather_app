@@ -28,7 +28,7 @@ const HourlyForecast = ({ hourlyForecastData }) => {
                                     )}°`}</span>
                                     <div className="">
                                         <img
-                                            src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
+                                            src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
                                             alt="weather icon"
                                             className="mx-auto w-14 h-14"
                                         />

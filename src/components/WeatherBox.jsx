@@ -42,7 +42,7 @@ const WeatherBox = ({ weatherData }) => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-4 px-3">
                         <div className="col-span-1">
-                            <div className="border-t border-gray-600 px-2.5 py-4 flex items-center justify-between">
+                            <div className="text-lg border-t border-gray-600 px-2.5 py-4 flex items-center justify-between">
                                 <span>Cao / Thấp</span>
                                 <span className="ml-auto">
                                     {`${Math.round(
@@ -52,13 +52,13 @@ const WeatherBox = ({ weatherData }) => {
                                     )}°`}
                                 </span>
                             </div>
-                            <div className="border-t border-gray-600 px-2.5 py-4 flex items-center justify-between">
+                            <div className="text-lg border-t border-gray-600 px-2.5 py-4 flex items-center justify-between">
                                 <span>Độ ẩm</span>
                                 <span className="ml-auto">
                                     {`${weatherData?.main.humidity}%`}
                                 </span>
                             </div>
-                            <div className="border-t border-gray-600 px-2.5 py-4 flex items-center justify-between">
+                            <div className="text-lg border-t border-gray-600 px-2.5 py-4 flex items-center justify-between">
                                 <span>Áp suất</span>
                                 <span className="ml-auto">
                                     {`${weatherData?.main.pressure} mb`}
@@ -66,19 +66,19 @@ const WeatherBox = ({ weatherData }) => {
                             </div>
                         </div>
                         <div className="col-span-1">
-                            <div className="border-t border-gray-600 px-2.5 py-4 flex items-center justify-between">
+                            <div className="text-lg border-t border-gray-600 px-2.5 py-4 flex items-center justify-between">
                                 <span>Có mây</span>
                                 <span className="ml-auto">
                                     {`${weatherData?.clouds.all} %`}
                                 </span>
                             </div>
-                            <div className="border-t border-gray-600 px-2.5 py-4 flex items-center justify-between">
+                            <div className="text-lg border-t border-gray-600 px-2.5 py-4 flex items-center justify-between">
                                 <span>Gió</span>
                                 <span className="ml-auto">
                                     {`${weatherData?.wind.speed} m/s`}
                                 </span>
                             </div>
-                            <div className="border-t border-gray-600 px-2.5 py-4 flex items-center justify-between">
+                            <div className="text-lg border-t border-gray-600 px-2.5 py-4 flex items-center justify-between">
                                 <span>Tầm nhìn</span>
                                 <span className="ml-auto">
                                     {`${weatherData?.visibility / 1000} km`}

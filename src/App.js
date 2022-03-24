@@ -51,7 +51,9 @@ const App = () => {
 
     return (
         <div className="bg-gradient-to-b from-blue-200 to-blue-300">
-            <QueryContext.Provider value={(query, setQuery, handleSearch)}>
+            <QueryContext.Provider
+                value={{ query, setQuery, handleSearch, loading }}
+            >
                 <header className="py-6 bg-gradient-to-b from-blue-500 to-blue-600">
                     <div className="container mx-auto max-w-6xl">
                         <div className="flex items-center justify-between">
